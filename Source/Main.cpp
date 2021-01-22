@@ -13,5 +13,5 @@ int main (int argc, char *argv[]) {
 
 
     deck->shuffle();
-    // deck->print();
+    deck->print();
 }
