@@ -1,8 +1,10 @@
 #include "../Headers/Deck.hpp"
 
 #include <sstream>
+#include <algorithm>
+#include <ctime>
 
-Deck::Deck(std::string filePath){
+Deck::Deck(const std::string filePath){
     std::string line;
     std::ifstream file(filePath);
 
@@ -28,10 +30,27 @@ Deck::Deck(std::string filePath){
 
 } 
 
+void Deck::shuffle(){
+    std::random_shuffle(this->cards.begin(), this->cards.end());
+}
+
+Card * Deck::getTop(){
+    return &cards[0];
+}
+
+Card * Deck::getRandom(){
+    srand((unsigned) time(0));
+
+    return &cards[(rand() % this->cards.size())];
+}
+
 void Deck::print(){
     std::cout << "The order of this deck in order of top to bottom is as follows." << std::endl;
+
     for(int i = 0; i < cards.size(); i++){
         std::cout << "Card " << i << ": ";
         cards[i].print();
     }
+
+    std::cout << "Finished printing deck." << std::endl;
 }

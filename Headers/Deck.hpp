@@ -15,7 +15,11 @@ class Deck
 
     public:
         //TODO Deconstructors
-        Deck(std::string filePath);
+        Deck(const std::string filePath);
+
+        void shuffle();
+        Card * getTop();
+        Card * getRandom();
 
         void print();
 };

@@ -7,4 +7,11 @@ int main (int argc, char *argv[]) {
     
     Deck* deck = new Deck("Resources/deck.txt");
     deck->print();
+
+    deck->getTop()->print();
+    deck->getRandom()->print();
+
+
+    deck->shuffle();
+    // deck->print();
 }
